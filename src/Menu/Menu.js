@@ -1,5 +1,6 @@
 import React, {Component, useState, useEffect, useReducer } from 'react'
 import classes from './Menu.module.css'
+import MealItem from './MealItem/MealItem'
 
 const mealReducer = (state, action) => {
     if (action.type === 'ADD') {
@@ -33,10 +34,13 @@ const Menu = () => {
         }
     }
 
-   const menuClass =  `${classes.menu} ${menu.value ? '' : classes.invalid}`
+    const menuClass = `${classes.menu} ${menu.value ? '' : classes.invalid}`
      return (
         <div className={menuClass}>
             {menuHandler}
+            <section>
+                <MealItem items={onAddMeals}></MealItem>
+            </section>
         </div>
     )
 }
